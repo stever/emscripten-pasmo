@@ -1,5 +1,2 @@
 /.idea/
-.deps/
-Makefile
-config.log
-config.status
+/cmake-build-debug/
