@@ -1,38 +1,37 @@
 # Pasmo
 
-Pasmo is a multi-platform Z80 cross-assembler.
-
+Emscripten conversion for Pasmo, a multi-platform Z80 cross-assembler.
 It can be used to compile assembly language programs for the ZX Spectrum.
 
-Documentation: See the file pasmodoc.html, included in this package or on the 
-Pasmo website. See also the .asm sample files included with the source package.
-
-## Build
-
-```bash
-./configure
-make
-```
-
-To install:
-
-```bash
-make install
-```
-
-To compile with other options:
-
-```bash
-./configure --help
-```
-
 ## Usage
+
+```bash
+npm install pasmo
+```
+
+```javascript
+import pasmo from "pasmo";
+
+const tap = pasmo('');
+```
+
+## Build library
+
+```bash
+npm install
+npm run build
+npm run test
+```
+
+## CLI command notes
+
+### Usage
 
 ```bash
 pasmo [options] file.asm file.bin [file.symbol [file.publics]]
 ```
 
-### Options
+#### Options
 
 ```text
 	-d         -->	Show debug info during assembly.
