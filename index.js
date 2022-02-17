@@ -5,7 +5,7 @@ module.exports = input => {
         Module({
             'input': input,
             'resolve': resolve,
-            'arguments': ['input.bas', 'output.tap', '-a']
+            'arguments': ['--tapbas', 'input.asm', 'output.tap']
         });
     });
 }

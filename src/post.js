@@ -1,5 +1,5 @@
 Module['postRun'] = [];
 Module['postRun'].push(function() {
-  var output = FS.readFile('output.tap'/*, { encoding: 'utf8' }*/);
+  var output = FS.readFile('output.tap');
   Module['resolve'](output);
 });
