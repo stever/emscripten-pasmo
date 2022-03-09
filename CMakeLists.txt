@@ -12,6 +12,6 @@ endif()
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -O0")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -O2")
 
-file(GLOB SOURCES "src/*.cpp")
+file(GLOB SOURCES "src/*.cxx")
 
 add_executable(pasmo ${SOURCES})

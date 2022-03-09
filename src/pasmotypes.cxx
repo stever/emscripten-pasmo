@@ -1,65 +1,89 @@
-// pasmotypes.cpp
-// Revision 8-dec-2004
+// pasmotypes.cxx
 
 #include "pasmotypes.h"
 
+namespace
+{
 
-namespace {
-
-
-const char hexdigit []= { '0', '1', '2', '3', '4', '5', '6', '7',
-	'8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
+const char hexdigit[] =
+{
+    '0', '1', '2', '3', '4', '5', '6', '7',
+    '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
 
 } // namespace
 
-std::string hex2str (byte b)
+byte lobyte(address n)
 {
-	return std::string (1, hexdigit [ (b >> 4) & 0x0F] ) +
-		hexdigit [b & 0x0F];
+    return static_cast<byte>(n & 0xFF);
 }
 
-std::string hex4str (address n)
+byte hibyte(address n)
 {
-	return hex2str (hibyte (n) ) + hex2str (lobyte (n) );
+    return static_cast<byte>(n >> 8);
 }
 
-std::string hex8str (size_t nn)
+address makeword(byte low, byte high)
 {
-	return hex4str ( (nn >> 16) & 0xFFFF) + hex4str (nn & 0xFFFF);
+    return low | (address(high) << 8);
 }
 
-std::string Hex2::str () const
+void putword(std::ostream & os, address word)
 {
-	return hex2str (b);
+    os.put(lobyte(word) );
+    os.put(hibyte(word) );
 }
 
-std::string Hex4::str () const
+std::string hex2str(byte b)
 {
-	return hex4str (n);
+    return std::string(1, hexdigit[ (b >> 4) & 0x0F] ) +
+        hexdigit[b & 0x0F];
 }
 
-std::string Hex8::str () const
+std::string hex4str(address n)
 {
-	return hex8str (nn);
+    return hex2str(hibyte(n) ) + hex2str(lobyte(n) );
 }
+
+std::string hex8str(size_t nn)
+{
+    return hex4str( (nn >> 16) & 0xFFFF) + hex4str(nn & 0xFFFF);
+}
+
+//--------------------------------------------------------------
+
+Hex2::Hex2(byte b) :
+    b(b)
+{ }
+
+std::string Hex2::str() const
+{
+    return hex2str(b);
+}
+
+Hex4::Hex4(address n) :
+    n(n)
+{ }
+
+std::string Hex4::str() const
+{
+    return hex4str(n);
+}
+
+//--------------------------------------------------------------
+
+Hex2 hex2(byte b) { return Hex2(b); }
+Hex4 hex4(address n) { return Hex4(n); }
 
 std::ostream & operator << (std::ostream & os, const Hex2 & h2)
 {
-	os << h2.str ();
-	return os;
+    os << h2.str();
+    return os;
 }
 
 std::ostream & operator << (std::ostream & os, const Hex4 & h4)
 {
-	os << h4.str ();
-	return os;
+    os << h4.str();
+    return os;
 }
 
-std::ostream & operator << (std::ostream & os, const Hex8 & h8)
-{
-	os << h8.str ();
-	return os;
-}
-
-
-// End of pasmotypes.cpp
+// End

@@ -1,7 +1,9 @@
-# Pasmo
+# Pasmo (emscripten version)
 
 Emscripten conversion for Pasmo, a multi-platform Z80 cross-assembler.
 It can be used to compile assembly language programs for the ZX Spectrum.
+
+This is based on Pasmo 0.5.5 which is available from https://pasmo.speccy.org
 
 ## Usage
 
@@ -51,6 +53,8 @@ const tap = pasmo(asm);
 ```
 
 ## Build library
+
+Note that you need to have the Emscripten SDK installed and available on path.
 
 ```bash
 npm install
