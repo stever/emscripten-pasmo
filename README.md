@@ -62,99 +62,34 @@ npm run build
 npm run test
 ```
 
-## CLI command notes
+## Licenses
 
-### Usage
+### Pasmo
 
-```bash
-pasmo [options] file.asm file.bin [file.symbol [file.publics]]
-```
+(C) 2004-2022 Julián Albo.
 
-#### Options
+Use and distribution allowed under the terms of the GPLv3 license.
 
-```text
-	-d         -->	Show debug info during assembly.
+### emscripten-fs-example
 
-	-1         -->	Show debug info during assembly,
-			also in first pass.
+MIT License
 
-	-v         -->	Verbose. Show progress information
-			during assembly.
+Copyright (c) 2018 Damián Silvani
 
-	-I         -->	Add directory to the list for
-			searching files in INCLUDE and INCBIN.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-	--bin      -->	Generate the object file in pure binary
-			format without headers.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-	--hex      -->	Generate the object file in Intel HEX
-			format.
-
-	--prl      -->	Generate the object file in the PRL
-			format. Useful for CP/M Plus RSX.
-
-	--cmd      -->	Generate the object file in CP/M 86
-			CMD format.
-
-	--plus3dos -->	Generate the object file with PLUS3DOS
-			header (Spectrum disk).
-
-	--tap      -->	Generate a .tap file for Spectrum
-			emulators (tape image).
-
-	--tzx      -->	Generate a .tzx file for Spectrum
-			emulators (tape image).
-
-	--cdt      -->	Generate a .cdt file for Spectrum
-			emulators (tape image).
-
-	--tapbas   -->	Same as --tap option but adding a
-			Basic loader.
-
-	--tzxbas   -->	Same as --tzx option but adding a
-			Basic loader.
-
-	--cdtbas   -->	Same as --cdt option but adding a
-			Basic loader.
-
-	--amsdos   -->	Generate the object file with Amsdos
-			header (Amstrad CPC disk).
-
-	--msx      -->	Generate the object file with header
-			for use with BLOAD in MSX Basic.
-
-	--public   -->	The symbol table listing will include
-			only symbols declared as PUBLIC.
-
-	--name     -->	Name for the header in the formats that
-			use it. If unspecified the object file
-			name will be used.
-
-	--err      -->	Direct error messages to standard ouptut
-			instead of error output (except for errors
-			in options).
-
-	--nocase   -->	Make identifiers case insensitive.
-
-	--alocal   -->	Autolocal mode: the labels than begins with
-			a '_' are locals, and his ambit finishes in
-			the next no local label or in the next PROC,
-			LOCAL or MACRO directive.
-
-	-B
-	--bracket  -->	Bracket only mode: parenthesis are reserved
-			for expressions.
-
-	-E
-	--equ	   -->	Predefine a label.
-
-	-8
-	-w8080     -->	Show warnings when using Z80 instructions
-			that does not exist in 8080.
-
-	--86       -->	Generate 8086 code.
-```
-
-If no code generation options are specified --bin is assumed.
-
-Debug info goes to standard output, error messages to error output.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
