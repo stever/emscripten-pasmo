@@ -1,6 +1,6 @@
 {
   "name": "pasmo",
-  "version": "0.0.1-alpha.3",
+  "version": "0.0.1-alpha.4",
   "main": "index.js",
   "license": "GPL-3.0",
   "author": "Steven Robertson <stever@hey.com>",
@@ -31,7 +31,7 @@
     "build:release": "mkdirp build && cd build && emcmake cmake -DCMAKE_BUILD_TYPE=Release .. && make && cp-cli pasmo.js ../dist/pasmo.js",
     "clean": "del-cli build",
     "clean:all": "del-cli build dist",
-    "test": "jest",
+    "test": "jest --silent=false",
     "publish-pkg": "npm publish --access public"
   },
   "devDependencies": {
@@ -43,7 +43,7 @@
     "babel-jest": "^27.2.1",
     "cp-cli": "^1.1.2",
     "del-cli": "^4.0.1",
-    "jest": "^27.2.1",
+    "jest": "^27.5.1",
     "jest-transform-stub": "^2.0.0",
     "mkdirp": "^0.5.1",
     "npm-run-all": "^4.1.5"
