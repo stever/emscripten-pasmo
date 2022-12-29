@@ -22,7 +22,7 @@
     "index.js",
     "dist",
     "README.md",
-    "LICENSE",
+    "COPYING",
     "package.json"
   ],
   "scripts": {
