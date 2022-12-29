@@ -1,29 +1,67 @@
 const Module = require('./dist/pasmo.js');
 
-// TODO: Command error handling!
-
+/**
+ *
+ * @param asmInput
+ * @returns {Promise<function>}
+ */
 export default function compile(asmInput) {
-    return new Promise((resolve/*, reject*/) => {
+
+    // Prepare args for the pasmo command.
+    const args = [];
+    args.push('--tapbas');
+    args.push('input.asm');
+    args.push('output.tap');
+
+    // Collect output.
+    const out = [];
+
+    // Call the pasmo module with data for command.
+    return new Promise((resolve, reject) => {
         Module({
-            'print': console.log,
-            'printErr': console.error,
-            'asmInput': asmInput,
-            'resolve': resolve,
-            'arguments': ['--tapbas', 'input.asm', 'output.tap']
+            arguments: args,
+            asmInput,
+            out,
+            resolve,
+            reject,
+            print: (text) => out.push({type: 'out', text}),
+            printErr: (text) => out.push({type: 'err', text})
         });
     });
 }
 
+/**
+ *
+ * @param binInput
+ * @returns {Promise<function>}
+ */
 export function bin2tap(binInput) {
+
+    // Prepare args for the pasmo command.
+    const args = [];
+    args.push('--tapbas');
+    args.push('input.asm');
+    args.push('output.tap');
+
+    // Collect output.
+    const out = [];
+
+    // Assembler code to prepare the program.
     const asmInput = `ORG 0x8000
 INCBIN input.bin
 END 0x8000`;
-    return new Promise((resolve/*, reject*/) => {
+
+    // Call the pasmo module with data for command.
+    return new Promise((resolve, reject) => {
         Module({
-            'asmInput': asmInput,
-            'binInput': binInput,
-            'resolve': resolve,
-            'arguments': ['--tapbas', 'input.asm', 'output.tap']
+            arguments: args,
+            asmInput,
+            binInput,
+            out,
+            resolve,
+            reject,
+            print: (text) => out.push({type: 'out', text}),
+            printErr: (text) => out.push({type: 'err', text})
         });
     });
 }
