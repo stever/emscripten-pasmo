@@ -1,7 +1,7 @@
 const Module = require('./dist/pasmo.js');
 
 /**
- *
+ * Compiles a .TAP file given assembly source input.
  * @param asmInput
  * @returns {Promise<function>}
  */
@@ -31,7 +31,7 @@ export default function compile(asmInput) {
 }
 
 /**
- *
+ * Compiles a .TAP file by adding a loader (in assembly) given a binary input.
  * @param binInput
  * @returns {Promise<function>}
  */
