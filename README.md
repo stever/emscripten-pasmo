@@ -56,6 +56,19 @@ const tap = pasmo(asm);
 
 Note that you need to have the Emscripten SDK installed and available on path.
 
+Install & activate `emsdk` from Emscripten:
+
+```bash
+git clone https://github.com/emscripten-core/emsdk.git
+cd emsdk/
+git pull
+./emsdk install latest
+./emsdk activate latest
+source ./emsdk_env.sh
+```
+
+Build the library:
+
 ```bash
 npm install
 npm run build
