@@ -30,7 +30,7 @@
     "build:debug": "mkdirp build && cd build && emcmake cmake -DCMAKE_BUILD_TYPE=Debug .. && make && cp-cli pasmo.js ../dist/pasmo.js",
     "build:release": "mkdirp build && cd build && emcmake cmake -DCMAKE_BUILD_TYPE=Release .. && make && cp-cli pasmo.js ../dist/pasmo.js",
     "clean": "del-cli build",
-    "clean:all": "del-cli build dist",
+    "clean:all": "del-cli build dist src/CMakeFiles src/cmake_install.cmake src/CMakeCache.txt src/Makefile src/pasmo",
     "test": "jest --noStackTrace",
     "publish-pkg": "npm publish --access public"
   },

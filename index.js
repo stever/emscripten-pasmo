@@ -9,6 +9,7 @@ export default function compile(asmInput) {
 
     // Prepare args for the pasmo command.
     const args = [];
+    // args.push('-v');
     args.push('--tapbas');
     args.push('input.asm');
     args.push('output.tap');
@@ -24,8 +25,14 @@ export default function compile(asmInput) {
             out,
             resolve,
             reject,
-            print: (text) => out.push({type: 'out', text}),
-            printErr: (text) => out.push({type: 'err', text})
+            print: (text) => {
+                // console.log(`[stdout] ${text}`);
+                out.push({type: 'out', text});
+            },
+            printErr: (text) => {
+                // console.log(`[stderr] ${text}`);
+                out.push({type: 'err', text});
+            }
         });
     });
 }
@@ -39,6 +46,7 @@ export function bin2tap(binInput) {
 
     // Prepare args for the pasmo command.
     const args = [];
+    // args.push('-v');
     args.push('--tapbas');
     args.push('input.asm');
     args.push('output.tap');
@@ -60,8 +68,14 @@ END 0x8000`;
             out,
             resolve,
             reject,
-            print: (text) => out.push({type: 'out', text}),
-            printErr: (text) => out.push({type: 'err', text})
+            print: (text) => {
+                // console.log(`[stdout] ${text}`);
+                out.push({type: 'out', text});
+            },
+            printErr: (text) => {
+                // console.log(`[stderr] ${text}`);
+                out.push({type: 'err', text});
+            }
         });
     });
 }
