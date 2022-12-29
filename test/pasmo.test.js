@@ -128,7 +128,7 @@ hello    db "Hello, world.", 0Dh, 0
             error => {
                 expect(error.length).toBe(1);
                 expect(error[0].type).toBe('err');
-                expect(error[0].text).toBe('line 1: missing line number');
+                expect(error[0].text).toBe('ERROR: Symbol \'hello\' is undefined  on line 1 of file input.asm');
             }
         );
     });
