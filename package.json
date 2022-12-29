@@ -3,20 +3,20 @@
   "version": "0.0.1-alpha.5",
   "main": "index.js",
   "license": "GPL-3.0",
-  "author": "Steven Robertson <stever@hey.com>",
+  "author": "Steve Robertson <stever@hey.com>",
   "description": "Emscripten conversion for Pasmo, a multi-platform Z80 cross-assembler.",
   "keywords": [
     "emscripten",
     "zxspectrum",
     "assembler"
   ],
-  "homepage": "https://github.com/stever/pasmo#readme",
+  "homepage": "https://github.com/stever/emscripten-pasmo#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/stever/pasmo.git"
+    "url": "https://github.com/stever/emscripten-pasmo.git"
   },
   "bugs": {
-    "url": "https://github.com/stever/pasmo/issues"
+    "url": "https://github.com/stever/emscripten-pasmo/issues"
   },
   "files": [
     "index.js",
